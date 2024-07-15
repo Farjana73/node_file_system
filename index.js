@@ -88,6 +88,28 @@ async function renameFolderDirectory(){
         console.log(err);
     }
 }
+// Delete folder
+
+async function deleteFolderDirectory(){
+    try{
+        let result = await fs.rmdirSync( "new_folder25")
+
+        console.log('successfully deleted');
+    }catch{
+        console.log(err);
+    }
+}
+// file exist or not 
+
+async function checkExist(){
+    try{
+        let result = await fs.existsSync( "todo.text")
+
+        console.log(result);
+    }catch{
+        console.log(err);
+    }
+}
 
 // IIF (Immediately invoked function)
 (async ()=>{
@@ -98,7 +120,11 @@ async function renameFolderDirectory(){
     // await renameFile()
     // await createDirectory()
 
-    await renameFolderDirectory()
+    // await renameFolderDirectory()
+
+    // await deleteFolderDirectory()
+
+    await checkExist()
 
 })()
 
