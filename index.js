@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 
 // file read
@@ -63,12 +64,41 @@ async function renameFile(filename) {
    }
 }
 
+// create folder
+
+
+async function createDirectory(){
+    try{
+        let result = await fs.mkdirSync("new_folder")
+
+        console.log('successfully created');
+    }catch{
+        console.log(err);
+    }
+}
+
+// Rename folder
+
+async function renameFolderDirectory(){
+    try{
+        let result = await fs.renameSync("new_folder", "new_folder25")
+
+        console.log('successfully renamed');
+    }catch{
+        console.log(err);
+    }
+}
+
+// IIF (Immediately invoked function)
 (async ()=>{
     // await readFile()
     // await createNewFile()
    // await appendNewFileContent()
    //  await deleteFile()
-    await renameFile()
+    // await renameFile()
+    // await createDirectory()
+
+    await renameFolderDirectory()
 
 })()
 
